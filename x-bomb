@@ -2,26 +2,22 @@
 #include<stdlib.h>
 #include<time.h>
 #include<conio.h>
-
+#include<windows.h>
     int rows = 5;
     int columns = 5;
     int z;
     int arr[100];
     int *ptr2=&arr[100];
     int a,b,c,d,e,f,g,h,s,j,w,l,v,n,o,p;
-void tablez()
-{
-
+void tablez(){
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
             printf("|\t%d\t", i * columns + j + 1);
         }
-        printf("|\n____________________________\n"); // Move to the next row
+        printf("|\n________________________________\n"); // Move to the next row
     }
-
 }
-void first()
-{
+void first(){
     srand(time(NULL));
      a=rand()%25;
      b=rand()%25;
@@ -50,97 +46,89 @@ void first()
     printf("\t%d",s);
     printf("\t%d",j);*/
 }
-int minez(int *ptr2,int m)
-{
-    int y=0;
-
-    if(arr[m]==a||arr[m]==b||arr[m]==c||arr[m]==d||arr[m]==e||arr[m]==f||arr[m]==g||arr[m]==h||arr[m]==s||arr[m]==j||arr[m]==w||arr[m]==l||arr[m]==v||arr[m]==n||arr[m]==o||arr[m]==p)
-    {
+int minez(int *ptr2,int m){
+    inty=0;    if(arr[m]==a||arr[m]==b||arr[m]==c||arr[m]==d||arr[m]==e||arr[m]==f||arr[m]==g||arr[m]==h||arr[m]==s||arr[m]==j||arr[m]==w||arr[m]==l||arr[m]==v||arr[m]==n||arr[m]==o||arr[m]==p) {
+       { {HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
         printf("\nSad!u popped up a mine\n");
-
-    for (int i = 0; i < rows; i++) {
+         }  }
+for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
                 int k=i*columns+j+1;
-                if(k==a||k==b||k==c||k==d||k==e||k==f||k==g||k==h||k==i||k==j||k==w||k==l||k==v||k==n||k==o||k==p)
-                {
-                    _cprintf("|\t*\t");
+if(k==a||k==b||k==c||k==d||k==e||k==f||k==g||k==h||k==i||k==j||k==w||k==l||k==v||k==n||k==o||k==p) {
+                        printf("|\t*\t");
                 }
                 else{
                         printf("|\t%d\t", i * columns + j + 1);
                 }
         }
-        printf("|\n____________________________\n"); // Move to the next row
+         printf("|\n________________________________\n");
     }
     y=1;
-
-    }
+}
     else
-    {
-        printf("\nYou are on a right track\n");
+    { {HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+        printf("\nYou are on a right track\n");}
+
         printf("\n");
         printf("\n");
         printf("\n");
         for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
                 int k=i*columns+j+1;
-              for(int x=0;x<i+1;x++)
-            {
-            if(i * columns + j + 1==arr[x])
-            {
+              for(int x=0;x<i+1;x++) {
+            if(i * columns + j + 1==arr[x])  {
                 printf("|\tDone\t");
             }
             }
-
-
             printf("|\t%d\t", i * columns + j + 1);
-
-
         }
-        printf("|\n__________________________________\n"); // Move to the next row
+         printf("|\n________________________________\n");
     }
     }
     return y;
-
 }
 void gameover(){
-printf("___________________\n|\t\t\t\t\t\t\t|");
+     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
+printf("___\n|\t\t\t\t\t\t\t|");
         printf("\n|\t\t\t\t\t\t\t|");
         printf("\n|\t\t\t\t\t\t\t|");
         printf("\n|\t\t\tGame Over\t\t\t|");
         printf("\n|\t\t\t\t\t\t\t|");
         printf("\n|\t\t\t\t\t\t\t|\n");
-        printf("___________________");}
+        printf("___");
+        SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);}
 int main ()
-
 {   int c=1;
     int r,i;
-
+    {   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, BACKGROUND_RED | BACKGROUND_INTENSITY);
+        printf("Are you Ready For The Game x-Bomb...1..2..3\n");
+    Sleep(3000);
+    printf("\n");
+    printf("Let's start\n");
+    Sleep(3000);
+    printf("\n");
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); }
     labe1:
     tablez();
     first();
-for(i=0;i<36;i++)
-{
-
-
-    printf("\nEnter the number u think mine isnt present\n");
+for(i=0;i<25;i++){
+    printf("Enter the number You think mine isn't present\n");
     scanf("%d",&arr[i]);
-    if(minez(arr,i)==1)
-    {
-    printf("Press '1' to retry or '0' to end game\n");
+    if(minez(arr,i)==1) {
+     printf("Press '1' to retry or '0' to end game\n");
     scanf("%d",&r);
-    if(c==r)
-    {
-
-        goto labe1;
-    }
-    else
-        {
+    if(c==r){
+        goto labe1;   }
+    else{
        gameover();
         goto labe2;
-
         }
     }
 }
 labe2:
     return 0;
-
+}
